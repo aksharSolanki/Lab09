@@ -20,7 +20,8 @@
                 xhttp.onreadystatechange = function() {
                    if(xhttp.readyState == 4 && xhttp.status == 200) {
                        var jsonObject = xhttp.response;
-                       document.getElementById('result').innerHTML = jsonObject.cars;
+                       document.getElementById('result').innerHTML = jsonObjects.Name;
+                       document.getElementById('result').innerHTML = jsonObjects.Age;
                    }
                 };
 
