@@ -1,0 +1,32 @@
+<html>
+    <head>
+        <title>Cars</title>
+    </head>
+    <body>
+        <h1>Cars List</h1>
+        <br>
+        <div id="result"></div>
+        <br />
+        <button type="button" onclick="">Show Cars</button>
+        <script>
+             //CREATE XMLTHTTP REQUEST
+            var  xhttp = new XMLHttpRequest();
+            function GetCars() {
+                //SET REQUEST TYPE
+                xhttp.timeout = 3000;
+                xhttp.responseType = "json";
+
+                //STATE CHANGE HANDLERS
+                xhttp.onreadystatechange = function() {
+                   if(xhttp.readyState == 4 && xhttp.status == 200) {
+                       var jsonObject = xhttp.response;
+                       document.getElementById('result').innerHTML = jsonObject.cars[0];
+                   }
+                };
+
+                xhttp.open("GET", "cars.json", true);
+                xhttp.send();
+            }
+        </script>
+    </body>
+</html>
