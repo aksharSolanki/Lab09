@@ -1,0 +1,35 @@
+{
+    "cars" : [
+    {
+        "Id" : "1",
+        "Manufacturer" : "BMW",
+        "Model" : "X3",
+        "Price" : "74,500",
+        "Color" : "Ivory",
+        "WheelSize" : "22"
+    },
+    {
+        "Id" : "2",
+        "Manufacturer" : "Mercedes",
+        "Model" : "GLC",
+        "Price" : "86,900",
+        "Color" : "White",
+        "WheelSize" : "23"
+    },
+    {
+        "Id" : "3",
+        "Manufacturer" : "Audi",
+        "Model" : "A8",
+        "Price" : "89,950",
+        "Color" : "Yellow",
+        "WheelSize" : "20"
+    },
+    {
+        "Id" : "4",
+        "Manufacturer" : "Cadillac",
+        "Model" : "Escalade",
+        "Price" : "93,590",
+        "Color" : "Black",
+        "WheelSize" : "25"
+    } ]
+}
