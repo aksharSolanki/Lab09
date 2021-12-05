@@ -16,7 +16,7 @@
 <body>
     <h1>Traversing JSON file using AJAX</h1>
     <h2>Lab 09</h2>
-    <input type="search" name="itemId" placeholder="Enter ID"/>
+    <input type="search" name="itemId" placeholder="Enter ID" />
     <button id="getById" onclick="GetItemById()">Get Item</button>
     <button id="getAll" onclick="GetAllItems()">Get All Items</button>
     <br>
@@ -47,6 +47,8 @@
                     document.getElementById('result').innerHTML = output;
                 }
             };
+            xhttp.open("GET", "cars.json", true);
+            xhttp.send();
         }
         function GetItemById() {
             //CREATE XHTTP REQUEST
@@ -69,7 +71,9 @@
                 }
                 document.getElementsById('result').innerHTML = "";
                 document.getElementsById('result').innerHTML = output;
-            }
+            };
+            xhttp.open("GET", "cars.json", true);
+            xhttp.send();
         }
     </script>
 </body>
