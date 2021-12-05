@@ -9,9 +9,9 @@
         <br />
         <button type="button" onclick="GetCars()">Show Cars</button>
         <script>
-             //CREATE XMLTHTTP REQUEST
-            var  xhttp = new XMLHttpRequest();
             function GetCars() {
+                //CREATE XMLTHTTP REQUEST
+                var  xhttp = new XMLHttpRequest();
                 //SET REQUEST TYPE
                 xhttp.timeout = 3000;
                 xhttp.responseType = "json";
@@ -22,12 +22,12 @@
                        var jsonObject = xhttp.response;
                        var output = "";
                        for(var i = 0; i < jsonObject.cars.length; i++) {
-                           output += jsonObject.cars[i].Id; + "<br>"
-                           output += jsonObject.cars[i].Manufacturer; + "<br>"
-                           output += jsonObject.cars[i].Model; + "<br>"
-                           output += jsonObject.cars[i].Price; + "<br>"
-                           output += jsonObject.cars[i].Color; + "<br>"
-                           output += jsonObject.cars[i].WheelSize; + "<br><br>"
+                           output += jsonObject.cars[i].Id + "<br>";
+                           output += jsonObject.cars[i].Manufacturer + "<br>";
+                           output += jsonObject.cars[i].Model + "<br>";
+                           output += jsonObject.cars[i].Price + "<br>";
+                           output += jsonObject.cars[i].Color + "<br>";
+                           output += jsonObject.cars[i].WheelSize + "<br><br>";
                        }
                        document.getElementById('result').innerHTML = output;
                    }
