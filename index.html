@@ -82,7 +82,7 @@
                 //STATE CHANGE HANDLER
                 xhttp.onreadystatechange = function () {
                     if (xhttp.readyState == 4 && xhttp.status == 200) {
-                        var jsonFile = xhttp.response;
+                        var jsonObject = xhttp.response;
                         var output = "";
                         output += "ID: " + jsonObject.shoppingItems[id].Id + "<br>";
                         output += "Name: " + jsonObject.shoppingItems[id].Name + "<br>";
