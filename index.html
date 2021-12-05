@@ -11,14 +11,23 @@
             margin-left: 5%;
             border: 3px solid blue;
         }
+
         h1 {
             font-size: 2em;
-        } 
+        }
+
         h2 {
             font-size: 1.5em;
         }
+
         footer {
-            vertical-align: bottom;
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+            height: 60px;
+            /* Height of the footer */
+            background: #6cf;
+            color: white;
         }
     </style>
 </head>
@@ -26,7 +35,7 @@
 <body>
     <h1>Traversing JSON file using AJAX</h1>
     <h2>Lab 09</h2>
-    <input type="search" name="itemId" placeholder="Enter ID" />
+    <input type="search" id="itemId" placeholder="Enter ID" />
     <button id="getById" onclick="GetItemById()">Get Item</button>
     <button id="getAll" onclick="GetAllItems()">Get All Items</button>
     <br>
@@ -35,36 +44,37 @@
     <script type="text/javascript">
         function GetAllItems() {
             //CREATE XMLTHTTP REQUEST
-            var  xhttp = new XMLHttpRequest();
-                //SET REQUEST TYPE
-                xhttp.timeout = 3000;
-                xhttp.responseType = "json";
+            var xhttp = new XMLHttpRequest();
+            //SET REQUEST TYPE
+            xhttp.timeout = 3000;
+            xhttp.responseType = "json";
 
-                //STATE CHANGE HANDLERS
-                xhttp.onreadystatechange = function() {
-                   if(xhttp.readyState == 4 && xhttp.status == 200) {
-                       var jsonObject = xhttp.response;
-                       var output = "";
-                       for(var i = 0; i < jsonObject.shoppingItems.length; i++) {
-                           output += "ID: " + jsonObject.shoppingItems[i].Id + "<br>";
-                           output += "Name: " + jsonObject.shoppingItems[i].Name + "<br>";
-                           output += "Price: " + jsonObject.shoppingItems[i].Price + "<br>";
-                           output += "Quantity: " + jsonObject.shoppingItems[i].Quantity + "<br>";
-                           output += "Calories: " + jsonObject.shoppingItems[i].Calories + "<br><br>";
-                       }
-                       document.getElementById('result').innerHTML = output;
-                   }
-                };
-                xhttp.open("GET", "shoppingItems.json", true);
-                xhttp.send();
+            //STATE CHANGE HANDLERS
+            xhttp.onreadystatechange = function () {
+                if (xhttp.readyState == 4 && xhttp.status == 200) {
+                    var jsonObject = xhttp.response;
+                    var output = "";
+                    for (var i = 0; i < jsonObject.shoppingItems.length; i++) {
+                        output += "ID: " + jsonObject.shoppingItems[i].Id + "<br>";
+                        output += "Name: " + jsonObject.shoppingItems[i].Name + "<br>";
+                        output += "Price: " + jsonObject.shoppingItems[i].Price + "<br>";
+                        output += "Quantity: " + jsonObject.shoppingItems[i].Quantity + "<br>";
+                        output += "Calories: " + jsonObject.shoppingItems[i].Calories + "<br><br>";
+                    }
+                    document.getElementById('result').innerHTML = output;
+                }
+            };
+            xhttp.open("GET", "shoppingItems.json", true);
+            xhttp.send();
         }
         function GetItemById() {
-            //CREATE XHTTP REQUEST
-            var xhttp = new XMLHttpRequest();
-            var id = document.getElementsByName('itemId').values;
-            if(id == "") {
+            var id = document.getElementById('itemId').value;
+            if (document.getElementById('itemId').value == "") {
                 alert("Please enter ID of the item");
             }
+            //CREATE XHTTP REQUEST
+            var xhttp = new XMLHttpRequest();
+            
             //SET REQUEST TYPE
             xhttp.timeout = 3000;
             xhttp.responseType = "json";
@@ -75,10 +85,10 @@
                     var jsonFile = xhttp.response;
                     var output = "";
                     output += "ID: " + jsonObject.shoppingItems[i].Id + "<br>";
-                           output += "Name: " + jsonObject.shoppingItems[i].Name + "<br>";
-                           output += "Price: " + jsonObject.shoppingItems[i].Price + "<br>";
-                           output += "Quantity: " + jsonObject.shoppingItems[i].Quantity + "<br>";
-                           output += "Calories: " + jsonObject.shoppingItems[i].Calories + "<br><br>";
+                    output += "Name: " + jsonObject.shoppingItems[i].Name + "<br>";
+                    output += "Price: " + jsonObject.shoppingItems[i].Price + "<br>";
+                    output += "Quantity: " + jsonObject.shoppingItems[i].Quantity + "<br>";
+                    output += "Calories: " + jsonObject.shoppingItems[i].Calories + "<br><br>";
                 }
                 document.getElementById('result').innerHTML = "";
                 document.getElementById('result').innerHTML = output;
