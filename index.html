@@ -71,30 +71,31 @@
             var id = document.getElementById('itemId').value;
             if (document.getElementById('itemId').value == "") {
                 alert("Please enter ID of the item");
-            }
-            //CREATE XHTTP REQUEST
-            var xhttp = new XMLHttpRequest();
-            
-            //SET REQUEST TYPE
-            xhttp.timeout = 3000;
-            xhttp.responseType = "json";
+            } else {
+                //CREATE XHTTP REQUEST
+                var xhttp = new XMLHttpRequest();
 
-            //STATE CHANGE HANDLER
-            xhttp.onreadystatechange = function () {
-                if (xhttp.readyState == 4 && xhttp.status == 200) {
-                    var jsonFile = xhttp.response;
-                    var output = "";
-                    output += "ID: " + jsonObject.shoppingItems[i].Id + "<br>";
-                    output += "Name: " + jsonObject.shoppingItems[i].Name + "<br>";
-                    output += "Price: " + jsonObject.shoppingItems[i].Price + "<br>";
-                    output += "Quantity: " + jsonObject.shoppingItems[i].Quantity + "<br>";
-                    output += "Calories: " + jsonObject.shoppingItems[i].Calories + "<br><br>";
-                }
-                document.getElementById('result').innerHTML = "";
-                document.getElementById('result').innerHTML = output;
-            };
-            xhttp.open("GET", "shoppingItems.json", true);
-            xhttp.send();
+                //SET REQUEST TYPE
+                xhttp.timeout = 3000;
+                xhttp.responseType = "json";
+
+                //STATE CHANGE HANDLER
+                xhttp.onreadystatechange = function () {
+                    if (xhttp.readyState == 4 && xhttp.status == 200) {
+                        var jsonFile = xhttp.response;
+                        var output = "";
+                        output += "ID: " + jsonObject.shoppingItems[id].Id + "<br>";
+                        output += "Name: " + jsonObject.shoppingItems[id].Name + "<br>";
+                        output += "Price: " + jsonObject.shoppingItems[id].Price + "<br>";
+                        output += "Quantity: " + jsonObject.shoppingItems[id].Quantity + "<br>";
+                        output += "Calories: " + jsonObject.shoppingItems[id].Calories + "<br><br>";
+                    }
+                    document.getElementById('result').innerHTML = "";
+                    document.getElementById('result').innerHTML = output;
+                };
+                xhttp.open("GET", "shoppingItems.json", true);
+                xhttp.send();
+            }
         }
     </script>
 </body>
