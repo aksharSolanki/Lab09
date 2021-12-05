@@ -36,11 +36,11 @@
                        var jsonObject = xhttp.response;
                        var output = "";
                        for(var i = 0; i < jsonObject.shoppingItems.length; i++) {
-                           output += jsonObject.shoppingItems[i].Id + "<br>";
-                           output += jsonObject.shoppingItems[i].Name + "<br>";
-                           output += jsonObject.shoppingItems[i].Price + "<br>";
-                           output += jsonObject.shoppingItems[i].Quantity + "<br>";
-                           output += jsonObject.shoppingItems[i].Calories + "<br>";
+                           output += "ID: " + jsonObject.shoppingItems[i].Id + "<br>";
+                           output += "NAME: " + jsonObject.shoppingItems[i].Name + "<br>";
+                           output += "PRICE: " + jsonObject.shoppingItems[i].Price + "<br>";
+                           output += "QUANTITY: " + jsonObject.shoppingItems[i].Quantity + "<br>";
+                           output += "CALORIES: " + jsonObject.shoppingItems[i].Calories + "<br>";
                        }
                        document.getElementById('result').innerHTML = output;
                    }
@@ -51,7 +51,7 @@
         function GetItemById() {
             //CREATE XHTTP REQUEST
             var xhttp = new XMLHttpRequest();
-            var id = document.getElementByName('itemId').value;
+            var id = document.getElementsByName('itemId').value;
             if(id == "") {
                 alert("Please enter ID of the item");
             }
