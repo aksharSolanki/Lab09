@@ -9,6 +9,13 @@
             width: 50%;
             padding: 10px;
             margin-left: 5%;
+            border: 1px solid blue;
+        }
+        h1 {
+            font-size: 2em;
+        } 
+        h2 {
+            font-size: 1.5em;
         }
     </style>
 </head>
@@ -37,10 +44,10 @@
                        var output = "";
                        for(var i = 0; i < jsonObject.shoppingItems.length; i++) {
                            output += "ID: " + jsonObject.shoppingItems[i].Id + "<br>";
-                           output += "NAME: " + jsonObject.shoppingItems[i].Name + "<br>";
-                           output += "PRICE: " + jsonObject.shoppingItems[i].Price + "<br>";
-                           output += "QUANTITY: " + jsonObject.shoppingItems[i].Quantity + "<br>";
-                           output += "CALORIES: " + jsonObject.shoppingItems[i].Calories + "<br>";
+                           output += "Name: " + jsonObject.shoppingItems[i].Name + "<br>";
+                           output += "Price: " + jsonObject.shoppingItems[i].Price + "<br>";
+                           output += "Quantity: " + jsonObject.shoppingItems[i].Quantity + "<br>";
+                           output += "Calories: " + jsonObject.shoppingItems[i].Calories + "<br><br>";
                        }
                        document.getElementById('result').innerHTML = output;
                    }
