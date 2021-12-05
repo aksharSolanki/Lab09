@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Shopping Items</title>
+    <style>
+        #result {
+            background-color: antiquewhite;
+            width: 50%;
+            padding: 10px;
+            margin-left: 5%;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Traversing JSON file using AJAX</h1>
+    <h2>Lab 09</h2>
+    <input type="search" name="itemId" placeholder="Enter ID"/>
+    <button id="getById" onclick="GetItemById()">Get Item</button>
+    <button id="getAll" onclick="GetAllItems()">Get All Items</button>
+    <br>
+    <div id="result">Hello</div>
+    <footer>By Akshar Solanki</footer>
+    <script type="text/javascript">
+        function GetAllItems() {
+            //CREATE XHTTP REQUEST
+            var xhttp = new XMLHttpRequest();
+
+            //SET REQUEST TYPE
+            xhttp.timeout = 3000;
+            xhttp.responseType = "json";
+
+            //STATE CHANGE HANDLER
+            xhttp.onreadystatechange = function () {
+                if (xhttp.readyState == 4 && xhttp.status == 200) {
+                    var jsonFile = xhttp.response;
+                    var output = "";
+                    for (var i = 0; i < jsonFile.shoppingItems.length; i++) {
+                        output += jsonFile.shoppingItems[i].Id + "<br>";
+                        output += jsonFile.shoppingItems[i].Name + "<br>";
+                        output += jsonFile.shoppingItems[i].Price + "<br>";
+                        output += jsonFile.shoppingItems[i].Quantity + "<br>";
+                        output += jsonFile.shoppingItems[i].Calories + "<br>";
+                    }
+                    document.getElementsById('result').innerHTML = "";
+                    document.getElementById('result').innerHTML = output;
+                }
+            };
+        }
+        function GetItemById() {
+            //CREATE XHTTP REQUEST
+            var xhttp = new XMLHttpRequest();
+            var id = document.getElementsByName('itemId').value;
+            //SET REQUEST TYPE
+            xhttp.timeout = 3000;
+            xhttp.responseType = "json";
+
+            //STATE CHANGE HANDLER
+            xhttp.onreadystatechange = function () {
+                if (xhttp.readyState == 4 && xhttp.status == 200) {
+                    var jsonFile = xhttp.response;
+                    var output = "";
+                    output += jsonFile.shoppingItems[id].Id + "<br>";
+                    output += jsonFile.shoppingItems[id].Name + "<br>";
+                    output += jsonFile.shoppingItems[id].Price + "<br>";
+                    output += jsonFile.shoppingItems[id].Quantity + "<br>";
+                    output += jsonFile.shoppingItems[id].Calories + "<br>";
+                }
+                document.getElementsById('result').innerHTML = "";
+                document.getElementsById('result').innerHTML = output;
+            }
+        }
+    </script>
+</body>
+
+</html>

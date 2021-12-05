@@ -1,0 +1,46 @@
+{
+    "shoppingItems" : [
+        {
+            "Id" : "1",
+            "Name" : "Whole White Bread",
+            "Price" : "$3.13",
+            "Quantity" : "100gm",
+            "Calories" : "265/100gm"
+        },
+        {
+            "Id" : "2",
+            "Name" : "Salmon",
+            "Price" : "$25",
+            "Quantity" : "1lbs",
+            "Calories" : "208/1lbs"
+        },
+        {
+            "Id" : "3",
+            "Name" : "Brown Rice",
+            "Price" : "$94.95",
+            "Quantity" : "26lbs",
+            "Calories" : "111/100gm"
+        },
+        {
+            "Id" : "4",
+            "Name" : "Tomato Sauce",
+            "Price" : "$1.47",
+            "Quantity" : "680ml",
+            "Calories" : "29/100gm"
+        },
+        {
+            "Id" : "5",
+            "Name" : "Multigrain Cereals",
+            "Price" : "$4.25",
+            "Quantity" : "390gm",
+            "Calories" : "379/100gm"
+        },
+        {
+            "Id" : "6",
+            "Name" : "Frozen Spinach",
+            "Price" : "$1",
+            "Quantity" : "120Oz",
+            "Calories" : "23/100gm"
+        }
+    ]
+}
