@@ -10,6 +10,7 @@
             padding: 10px;
             margin-left: 5%;
             border: 3px solid blue;
+            margin-top: 2%;
         }
 
         h1 {
@@ -69,6 +70,7 @@
         }
         function GetItemById() {
             var id = document.getElementById('itemId').value;
+            id = id - 1;
             if (document.getElementById('itemId').value == "") {
                 alert("Please enter ID of the item");
             } else {
