@@ -9,13 +9,16 @@
             width: 50%;
             padding: 10px;
             margin-left: 5%;
-            border: 1px solid blue;
+            border: 3px solid blue;
         }
         h1 {
             font-size: 2em;
         } 
         h2 {
             font-size: 1.5em;
+        }
+        footer {
+            vertical-align: bottom;
         }
     </style>
 </head>
@@ -58,7 +61,7 @@
         function GetItemById() {
             //CREATE XHTTP REQUEST
             var xhttp = new XMLHttpRequest();
-            var id = document.getElementsByName('itemId').value;
+            var id = document.getElementsByName('itemId').values;
             if(id == "") {
                 alert("Please enter ID of the item");
             }
@@ -71,11 +74,11 @@
                 if (xhttp.readyState == 4 && xhttp.status == 200) {
                     var jsonFile = xhttp.response;
                     var output = "";
-                    output += jsonFile.shoppingItems[id].Id + "<br>";
-                    output += jsonFile.shoppingItems[id].Name + "<br>";
-                    output += jsonFile.shoppingItems[id].Price + "<br>";
-                    output += jsonFile.shoppingItems[id].Quantity + "<br>";
-                    output += jsonFile.shoppingItems[id].Calories + "<br>";
+                    output += "ID: " + jsonObject.shoppingItems[i].Id + "<br>";
+                           output += "Name: " + jsonObject.shoppingItems[i].Name + "<br>";
+                           output += "Price: " + jsonObject.shoppingItems[i].Price + "<br>";
+                           output += "Quantity: " + jsonObject.shoppingItems[i].Quantity + "<br>";
+                           output += "Calories: " + jsonObject.shoppingItems[i].Calories + "<br><br>";
                 }
                 document.getElementById('result').innerHTML = "";
                 document.getElementById('result').innerHTML = output;
