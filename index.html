@@ -24,36 +24,37 @@
     <footer>By Akshar Solanki</footer>
     <script type="text/javascript">
         function GetAllItems() {
-            //CREATE XHTTP REQUEST
-            var xhttp = new XMLHttpRequest();
+            //CREATE XMLTHTTP REQUEST
+            var  xhttp = new XMLHttpRequest();
+                //SET REQUEST TYPE
+                xhttp.timeout = 3000;
+                xhttp.responseType = "json";
 
-            //SET REQUEST TYPE
-            xhttp.timeout = 3000;
-            xhttp.responseType = "json";
-
-            //STATE CHANGE HANDLER
-            xhttp.onreadystatechange = function () {
-                if (xhttp.readyState == 4 && xhttp.status == 200) {
-                    var jsonFile = xhttp.response;
-                    var output = "";
-                    for (var i = 0; i < jsonFile.shoppingItems.length; i++) {
-                        output += jsonFile.shoppingItems[i].Id + "<br>";
-                        output += jsonFile.shoppingItems[i].Name + "<br>";
-                        output += jsonFile.shoppingItems[i].Price + "<br>";
-                        output += jsonFile.shoppingItems[i].Quantity + "<br>";
-                        output += jsonFile.shoppingItems[i].Calories + "<br>";
-                    }
-                    document.getElementsById("result").innerHTML = "";
-                    document.getElementById("result").innerHTML = output;
-                }
-            };
-            xhttp.open("GET", "shoppingItems.json", true);
-            xhttp.send();
+                //STATE CHANGE HANDLERS
+                xhttp.onreadystatechange = function() {
+                   if(xhttp.readyState == 4 && xhttp.status == 200) {
+                       var jsonObject = xhttp.response;
+                       var output = "";
+                       for(var i = 0; i < jsonObject.shoppingItems.length; i++) {
+                           output += jsonObject.shoppingItems[i].Id + "<br>";
+                           output += jsonObject.shoppingItems[i].Name + "<br>";
+                           output += jsonObject.shoppingItems[i].Price + "<br>";
+                           output += jsonObject.shoppingItems[i].Quantity + "<br>";
+                           output += jsonObject.shoppingItems[i].Calories + "<br>";
+                       }
+                       document.getElementById('result').innerHTML = output;
+                   }
+                };
+                xhttp.open("GET", "cars.json", true);
+                xhttp.send();
         }
         function GetItemById() {
             //CREATE XHTTP REQUEST
             var xhttp = new XMLHttpRequest();
-            var id = document.getElementsByName('itemId').value;
+            var id = document.getElementByName('itemId').value;
+            if(id == "") {
+                alert("Please enter ID of the item");
+            }
             //SET REQUEST TYPE
             xhttp.timeout = 3000;
             xhttp.responseType = "json";
@@ -69,8 +70,8 @@
                     output += jsonFile.shoppingItems[id].Quantity + "<br>";
                     output += jsonFile.shoppingItems[id].Calories + "<br>";
                 }
-                document.getElementsById("result").innerHTML = "";
-                document.getElementsById("result").innerHTML = output;
+                document.getElementById('result').innerHTML = "";
+                document.getElementById('result').innerHTML = output;
             };
             xhttp.open("GET", "shoppingItems.json", true);
             xhttp.send();
